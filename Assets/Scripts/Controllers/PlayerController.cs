@@ -1,15 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
+    public float playerSpeed;
+    public Rigidbody2D rb;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void PlayerMove(float xAxis)
+    {
+        if (xAxis != 0)
+        {
+            if (xAxis > 0)
+            {
+                rb.AddForce(transform.right * playerSpeed);
+            }
+
+            if (xAxis < 0)
+            {
+                rb.AddForce(-transform.right * playerSpeed);
+            }
+        }
+    }
+    public void PlayerJump()
+    {
+
+
+    }
 }
