@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
             playerController.PlayerMove(xAxis);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             playerController.PlayerJump();
         }
