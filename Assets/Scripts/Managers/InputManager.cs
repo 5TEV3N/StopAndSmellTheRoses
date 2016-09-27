@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerController = GameObject.FindGameObjectWithTag("T_Player").GetComponent<PlayerController>();
     }
     void FixedUpdate ()
     {
@@ -20,7 +21,12 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Jump goes here
+            playerController.PlayerJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))    // TESTING SCENES. PLEASE REMOVE LATER
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
