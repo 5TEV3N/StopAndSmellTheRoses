@@ -16,7 +16,7 @@ public class FogController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D (Collider2D player)
+    void OnTriggerEnter (Collider player)
     {
         if (player.gameObject.tag == "T_Player")
         {
