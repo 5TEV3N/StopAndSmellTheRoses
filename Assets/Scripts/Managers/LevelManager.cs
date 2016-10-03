@@ -36,10 +36,10 @@ public class LevelManager : MonoBehaviour
 
         Transform section2SpawnArray = section2Prefab[Random.Range(0, section2Prefab.Length)];
         Transform section2Spawn = Instantiate(section2SpawnArray);
-        section2Spawn.SetParent(section1Location);
+        section2Spawn.SetParent(section2Location);
 
         Transform section3SpawnArray = section3Prefab[Random.Range(0, section3Prefab.Length)];
         Transform section3Spawn = Instantiate(section3SpawnArray);
-        section3Spawn.SetParent(section1Location);
+        section3Spawn.SetParent(section3Location);
     }
 }

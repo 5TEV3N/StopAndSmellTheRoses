@@ -15,4 +15,27 @@ public class FogController : MonoBehaviour
             gameObject.transform.Translate(fogTranslate);
         }
     }
+
+    void OnTriggerEnter2D (Collider2D player)
+    {
+        if (player.gameObject.tag == "T_Player")
+        {
+            print("You die");
+        }
+        
+        if (gameObject.tag == "T_Section1")
+        {
+            print("faster");
+        }
+
+        if (gameObject.tag == "T_Section2")
+        {
+            print("i said faster...");
+        }
+
+        if (gameObject.tag == "T_Section3")
+        {
+            print("I SAID FASTER");
+        }
+    }
 }
