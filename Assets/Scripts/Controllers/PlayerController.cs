@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if(floor.gameObject.tag == "T_Floor")
         {
             isGrounded = true;
-            print("isGrounded = " + isGrounded);
+            //print("isGrounded = " + isGrounded);
         }
     }
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (floor.gameObject.tag == "T_Floor")
         {
             isGrounded = false;
-            print("isGrounded = " + isGrounded);
+            //print("isGrounded = " + isGrounded);
         }
     }
 }
