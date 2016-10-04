@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -45,9 +44,5 @@ public class InputManager : MonoBehaviour
             playerController.PlayerJump();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))    // TESTING SCENES. PLEASE REMOVE LATER
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 }

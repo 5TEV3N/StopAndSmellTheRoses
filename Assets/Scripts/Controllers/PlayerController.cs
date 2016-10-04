@@ -36,12 +36,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Player Jump Section
+    //Player Jump Section S/O too Matt F
     public void PlayerJump()
     {
         if (isGrounded)
         {
-            rb.AddForce(Vector3.up * playerJumpHeight);
+            rb.AddForce(transform.up * playerJumpHeight);
             isGrounded = false;
         }
     }
@@ -54,34 +54,3 @@ public class PlayerController : MonoBehaviour
          }
     }
 }
-
-//Please use raycasting for playerJump instead. -  Matt F
-/*
-public bool isGrounded;
-
-public void PlayerJump()
-{
-    if (isGrounded == true)
-    {
-        rb.AddForce(transform.up * playerJumpHeight);
-    }
-}
-
-void OnTriggerEnter2D(Collider2D floor)
-{
-    if(floor.gameObject.tag == "T_Floor")
-    {
-        isGrounded = true;
-        //print("isGrounded = " + isGrounded);
-    }
-}
-
-void OnTriggerExit2D(Collider2D floor)
-{
-    if (floor.gameObject.tag == "T_Floor")
-    {
-        isGrounded = false;
-        //print("isGrounded = " + isGrounded);
-    }
-}
-*/
