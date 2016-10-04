@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
             steKunAnimator.SetBool("isRunning", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Fire1"))
         {
             playerController.PlayerJump();
         }
