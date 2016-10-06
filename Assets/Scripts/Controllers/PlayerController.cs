@@ -7,11 +7,10 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;           // Speed of the player
     public float playerJumpHeight;      // Jump Height 
     public bool isGrounded;             // Checks if grounded
+
     public Rigidbody rb;                // Access the rigidbody2D
     public LayerMask ground;            // The ground is in a different layer, place it here.
-
-    
-     
+ 
     void FixedUpdate()
     {
         Vector3 down = transform.TransformDirection(Vector3.down) * rayDistance;

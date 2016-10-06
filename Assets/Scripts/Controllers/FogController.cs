@@ -11,31 +11,15 @@ public class FogController : MonoBehaviour
         timeBeforeFogMoves -= Time.deltaTime;
         if (timeBeforeFogMoves <= 0)
         {
-            print("RUN");
             gameObject.transform.Translate(fogTranslate);
         }
     }
 
-    void OnTriggerEnter (Collider player)
+    void OnTriggerEnter(Collider other)
     {
-        if (player.gameObject.tag == "T_Player")
+        if (other.gameObject.tag == "T_Player")
         {
             print("You die");
-        }
-        
-        if (gameObject.tag == "T_Section1")
-        {
-            print("faster");
-        }
-
-        if (gameObject.tag == "T_Section2")
-        {
-            print("i said faster...");
-        }
-
-        if (gameObject.tag == "T_Section3")
-        {
-            print("I SAID FASTER");
         }
     }
 }
