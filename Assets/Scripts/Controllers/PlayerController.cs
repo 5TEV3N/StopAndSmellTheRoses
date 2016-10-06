@@ -8,14 +8,17 @@ public class PlayerController : MonoBehaviour
     public float playerJumpHeight;      // Jump Height 
     public bool isGrounded;             // Checks if grounded
 
-    public Rigidbody rb;                // Access the rigidbody2D
-    public LayerMask ground;            // The ground is in a different layer, place it here.
+    public Rigidbody2D rb;              // Access the rigidbody2D
+    //public LayerMask ground;            // The ground is in a different layer, place it here.
  
     void FixedUpdate()
     {
-        Vector3 down = transform.TransformDirection(Vector3.down) * rayDistance;
-        Debug.DrawRay(transform.position, down, Color.magenta);
+        /*
+        Vector3 down = transform.TransformDirection(Vector3.down) * rayDistance;    //Debuging
+        Debug.DrawRay(transform.position, down, Color.magenta);                     //Debuging
+
         GroundCheck();
+        */
     }
     
     //Player Movement Section
@@ -35,7 +38,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Player Movement Section
+    
+    public void PlayerJump()
+    {
+        if (isGrounded == true)
+        {
+            rb.AddForce(transform.up * playerJumpHeight);
+            isGrounded = false;
+        }
+    }
+    
+    void OnTriggerStay2D(Collider2D floor)
+    {
+        if (floor.gameObject.tag == "T_Floor")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D floor)
+    {
+        if (floor.gameObject.tag == "T_Floor")
+        {
+            isGrounded = false;
+        }
+    }
+    
     //Player Jump Section S/O too Matt F
+    /*
     public void PlayerJump()
     {
         if (isGrounded)
@@ -43,8 +74,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * playerJumpHeight);
             isGrounded = false;
         }
-    }
-
+    } 
     public void GroundCheck()
     {
          if (Physics.Raycast(transform.position, Vector3.down, rayDistance, ground))
@@ -52,4 +82,5 @@ public class PlayerController : MonoBehaviour
              isGrounded = true;
          }
     }
+    */
 }
