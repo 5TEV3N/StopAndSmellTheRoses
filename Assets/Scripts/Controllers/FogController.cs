@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FogController : MonoBehaviour
@@ -19,7 +20,7 @@ public class FogController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject);
+        print("Close game");
+        Application.Quit();
     }
-
 }
