@@ -20,7 +20,10 @@ public class FogController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("Close game");
-        Application.Quit();
+        if (other.gameObject.tag == "T_PlayerTrigger")
+        {
+            print("Close game");
+            Application.Quit();
+        }
     }
 }
