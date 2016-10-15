@@ -9,21 +9,28 @@ public class RoseController : MonoBehaviour
     void Start()
     {
         BGM = GetComponent<AudioSource>();
-        musicStart = false;
     }
 
-    void OnTriggerStay(Collider other)
+    void Update()
+    {
+        if (musicStart == true)
+        {
+            BGM.volume = Mathf.Lerp(BGM.volume, 1f, Time.deltaTime);
+        }
+
+        if (musicStart == false)
+        {
+            BGM.volume = Mathf.Lerp(BGM.volume, 0f, Time.deltaTime);
+        }
+
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
-            if (musicStart == false)
-            {
-                print("play");
-                BGM.Play();
-                //lerp music
-                BGM.volume = Mathf.Lerp(0f, 1f, Time.deltaTime);
-                musicStart = true;
-            }
+            print ("music lerp to 1f");
+            musicStart = true;
         }
     }
 
@@ -31,9 +38,8 @@ public class RoseController : MonoBehaviour
     {
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
-            print("stop");
-            //lerp music to mute
-            BGM.Stop();
+            print("music lerp to 0f");
+            musicStart = false;
         }
     }
 }
