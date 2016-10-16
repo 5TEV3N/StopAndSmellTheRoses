@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;           // Speed of the player
     public float playerJumpHeight;      // Jump Height 
     public bool isGrounded;             // Checks if grounded
-
     public Rigidbody2D rb;              // Access the rigidbody2D
-    
+
     //Player Movement Section
+
     public void PlayerMove(float xAxis)
     {
         if (xAxis != 0)
