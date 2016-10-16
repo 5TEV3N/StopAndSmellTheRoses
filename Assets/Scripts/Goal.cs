@@ -6,6 +6,6 @@ public class Goal : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }

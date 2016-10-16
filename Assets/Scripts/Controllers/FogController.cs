@@ -8,11 +8,13 @@ public class FogController : MonoBehaviour
     public float fogSpeed;              // How fast the fog travels
     public Rigidbody rb;                // Container for the rigidbody
 
-    ParticleSystem fog;
+    private ParticleSystem fog;         // Retrieve the fog particle system 
+    private ConstantForce force;        // Retrieve the constant force component
 
     void Start()
     {
         fog = GetComponent<ParticleSystem>();
+        force = GetComponent<ConstantForce>();
     }
 
     void FixedUpdate()
@@ -21,9 +23,10 @@ public class FogController : MonoBehaviour
         if (timeBeforeFogMoves <= 0)
         {
             print("RUN!");
-            var fogEmit = fog.emission;
+
+            ParticleSystem.EmissionModule fogEmit = fog.emission;
             fogEmit.enabled = true;
-            rb.AddForce(transform.right * fogSpeed);
+            force.enabled = true;
         }
     }
 
