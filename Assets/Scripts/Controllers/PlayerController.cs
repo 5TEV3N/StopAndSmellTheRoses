@@ -6,9 +6,21 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;           // Speed of the player
     public float playerJumpHeight;      // Jump Height 
     public bool isGrounded;             // Checks if grounded
-    public Rigidbody2D rb;              // Access the rigidbody2D
+    public float valOfVelocity;         // Checks how fast the player goes
+    public float maxVelocity;           // The max speed of how fast the player goes
+
+    private Rigidbody2D rb;             // Access the rigidbody2D
     
     //Player Movement Section
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        valOfVelocity = rb.velocity.magnitude;
+    }
 
     public void PlayerMove(float xAxis)
     {
@@ -16,16 +28,18 @@ public class PlayerController : MonoBehaviour
         {
             if (xAxis > 0)
             {
-                rb.AddForce(transform.right * playerSpeed, ForceMode2D.Impulse);
-                //rb.velocity = (transform.right * playerSpeed);
-                //gameObject.transform.Translate(transform.right * playerSpeed);
+                if (valOfVelocity <= maxVelocity) // Thanks matt f
+                {
+                    rb.AddForce(transform.right * playerSpeed, ForceMode2D.Impulse);
+                }
             }
 
             if (xAxis < 0)
             {
-                rb.AddForce(-transform.right * playerSpeed, ForceMode2D.Impulse);
-                //rb.velocity = (-transform.right * playerSpeed);
-                //gameObject.transform.Translate(-transform.right * playerSpeed);
+                if(valOfVelocity <= maxVelocity)
+                {
+                    rb.AddForce(-transform.right * playerSpeed, ForceMode2D.Impulse);
+                }
             }
         }
     }
