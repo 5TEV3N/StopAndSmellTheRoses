@@ -8,14 +8,24 @@ public class LevelChangeController : MonoBehaviour
     string sceneName;       // Retrices the name of said active scene
     float pause = 1f;       // What time the timer starts at
 
+    [Header("Title Screen")]
     public GameObject ui1;
     public GameObject ui2;
     public GameObject ui3;
+
+    [Header("Pause Screen")]
+    public GameObject[] subText;
 
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
+
+        if (sceneName == "Pause")
+        {
+            GameObject subTextArray = subText[Random.Range(0, subText.Length)];
+            subTextArray.SetActive(true);
+        }
     }
     void Update()
     {
@@ -28,6 +38,7 @@ public class LevelChangeController : MonoBehaviour
                 SceneManager.LoadScene(1);
             }
         }
+
     }
     public void StartGame()
     {

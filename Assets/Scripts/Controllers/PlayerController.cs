@@ -17,11 +17,15 @@ public class PlayerController : MonoBehaviour
             if (xAxis > 0)
             {
                 rb.AddForce(transform.right * playerSpeed, ForceMode2D.Impulse);
+                //rb.velocity = (transform.right * playerSpeed);
+                //gameObject.transform.Translate(transform.right * playerSpeed);
             }
 
             if (xAxis < 0)
             {
                 rb.AddForce(-transform.right * playerSpeed, ForceMode2D.Impulse);
+                //rb.velocity = (-transform.right * playerSpeed);
+                //gameObject.transform.Translate(-transform.right * playerSpeed);
             }
         }
     }
@@ -32,7 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded == true)
         {
-            rb.AddForce(transform.up * playerJumpHeight);
+            rb.AddForce(transform.up * playerJumpHeight, ForceMode2D.Impulse);
+            //rb.velocity = (transform.up * playerJumpHeight);
             isGrounded = false;
         }
     }
