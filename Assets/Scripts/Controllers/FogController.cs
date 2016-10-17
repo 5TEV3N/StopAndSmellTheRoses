@@ -5,16 +5,15 @@ using System.Collections;
 public class FogController : MonoBehaviour
 {
     public float timeBeforeFogMoves;    // How long til the fog moves, value contains what the timer starts as
-    public float fogSpeed;              // How fast the fog travels
+    public float fogSpeed;
     public Rigidbody rb;                // Container for the rigidbody
 
+
     private ParticleSystem fog;         // Retrieve the fog particle system 
-    private ConstantForce force;        // Retrieve the constant force component
 
     void Start()
     {
         fog = GetComponent<ParticleSystem>();
-        force = GetComponent<ConstantForce>();
     }
 
     void FixedUpdate()
@@ -23,10 +22,10 @@ public class FogController : MonoBehaviour
         if (timeBeforeFogMoves <= 0)
         {
             print("RUN!");
-
+            gameObject.transform.Translate(new Vector2(1,0) * fogSpeed);
             ParticleSystem.EmissionModule fogEmit = fog.emission;
             fogEmit.enabled = true;
-            force.enabled = true;
+
         }
     }
 

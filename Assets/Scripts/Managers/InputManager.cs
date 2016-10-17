@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
     public Animator steKunAnimator;             // Animator for Ste-Kun refference
     private float xAxis = 0;                    // 1 = right -1 = Left
 
-
     void Awake()
     {
         playerController = GameObject.FindGameObjectWithTag("T_Player").GetComponent<PlayerController>();
@@ -38,6 +37,11 @@ public class InputManager : MonoBehaviour
         {
             steKunAnimator.SetBool("isRunning", false);
         }
+
+    }
+
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
         {

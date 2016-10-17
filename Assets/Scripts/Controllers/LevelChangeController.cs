@@ -8,6 +8,10 @@ public class LevelChangeController : MonoBehaviour
     string sceneName;       // Retrices the name of said active scene
     float pause = 1f;       // What time the timer starts at
 
+    public GameObject ui1;
+    public GameObject ui2;
+    public GameObject ui3;
+
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -28,5 +32,8 @@ public class LevelChangeController : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        ui1.SetActive(false);
+        ui2.SetActive(false);
+        ui3.SetActive(false);
     }
 }

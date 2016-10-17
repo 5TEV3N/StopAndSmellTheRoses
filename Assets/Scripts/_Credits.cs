@@ -12,5 +12,7 @@ public class _Credits : MonoBehaviour
         https://www.assetstore.unity3d.com/en/#!/content/33711
         
         http://www.looperman.com/loops/detail/90465/guitar-on-a-very-old-record-by-rasputin1963-free-73bpm-chill-out-acoustic-guitar-loop
+
+        http://www.dafont.com/stencil-8bit.font
     */
 }

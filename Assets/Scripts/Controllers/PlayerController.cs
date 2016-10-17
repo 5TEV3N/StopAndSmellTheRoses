@@ -16,14 +16,12 @@ public class PlayerController : MonoBehaviour
         {
             if (xAxis > 0)
             {
-                rb.AddForce(transform.right * playerSpeed);
-                //gameObject.transform.Translate(transform.right * 0.12f);
+                rb.AddForce(transform.right * playerSpeed, ForceMode2D.Impulse);
             }
 
             if (xAxis < 0)
             {
-                rb.AddForce(-transform.right * playerSpeed);
-                //gameObject.transform.Translate(-transform.right * 0.12f);
+                rb.AddForce(-transform.right * playerSpeed, ForceMode2D.Impulse);
             }
         }
     }
