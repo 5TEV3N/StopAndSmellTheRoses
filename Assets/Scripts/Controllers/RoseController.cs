@@ -5,7 +5,14 @@ public class RoseController : MonoBehaviour
 {
     public bool musicStart;         // Turns the music on ONCE after it's true
     private AudioSource BGM;        // Container for the AudioSource
-    
+
+    MusicManager musicManager;      // Refference to the music manager
+
+    void Awake()
+    {
+        musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
+    }
+
     void Start()
     {
         BGM = GetComponent<AudioSource>();
@@ -16,11 +23,14 @@ public class RoseController : MonoBehaviour
         if (musicStart == true)
         {
             BGM.volume = Mathf.Lerp(BGM.volume, 1f, Time.deltaTime);
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
+
         }
 
         if (musicStart == false)
         {
             BGM.volume = Mathf.Lerp(BGM.volume, 0f, Time.deltaTime);
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, Time.deltaTime);
         }
 
     }

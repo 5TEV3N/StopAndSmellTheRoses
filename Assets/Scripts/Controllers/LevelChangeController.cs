@@ -4,6 +4,7 @@ using System.Collections;
 
 public class LevelChangeController : MonoBehaviour
 {
+    MusicManager musicManager;                      // Refference to the music manager
     public float pause = 1f;                        // What time the timer starts at
     public bool lerpMusicToMute = false;            // When spacebar is hit, slowlymute
     private Scene currentScene;                     // Retrives the scene that's currently active
@@ -18,7 +19,9 @@ public class LevelChangeController : MonoBehaviour
 
     void Awake()
     {
+        musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
     }
+
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -48,8 +51,13 @@ public class LevelChangeController : MonoBehaviour
             if (pause <= 0)
             {
                 print("on the next one");
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(3);
             }
+        }
+
+        if (musicManager != null)
+        {
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
         }
 
     }
