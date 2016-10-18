@@ -4,18 +4,21 @@ using System.Collections;
 
 public class LevelChangeController : MonoBehaviour
 {
-    Scene currentScene;     // Retrives the scene that's currently active
-    string sceneName;       // Retrices the name of said active scene
-    public float pause = 1f;       // What time the timer starts at
+    public float pause = 1f;                        // What time the timer starts at
+    public bool lerpMusicToMute = false;            // When spacebar is hit, slowlymute
+    private Scene currentScene;                     // Retrives the scene that's currently active
+    private string sceneName;                       // Retrices the name of said active scene
 
     [Header("Title Screen")]
-    public GameObject ui1;
+    public GameObject ui1;                          // ui container for the titlecreen
     public GameObject ui2;
-    public GameObject ui3;
 
     [Header("Pause Screen")]
-    public GameObject[] subText;
+    public GameObject[] subText;                    // subText container for the titlecreen
 
+    void Awake()
+    {
+    }
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -27,8 +30,18 @@ public class LevelChangeController : MonoBehaviour
             subTextArray.SetActive(true);
         }
     }
+
     void FixedUpdate()
     {
+        if (sceneName == "_Title")
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                lerpMusicToMute = true;
+                StartGame();
+            }
+        }
+
         if (sceneName == "Pause")
         {
             pause -= Time.deltaTime;
@@ -42,9 +55,8 @@ public class LevelChangeController : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
         ui1.SetActive(false);
         ui2.SetActive(false);
-        ui3.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 }
