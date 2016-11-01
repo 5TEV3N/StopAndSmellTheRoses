@@ -10,7 +10,10 @@ public class RoseController : MonoBehaviour
 
     void Awake()
     {
-        musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
+        if (GameObject.FindGameObjectWithTag("T_MusicManager") != null)
+        {
+            musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
+        }
     }
 
     void Start()
