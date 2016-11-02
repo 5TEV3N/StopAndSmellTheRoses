@@ -17,7 +17,7 @@ public class Goal : MonoBehaviour
         transform.position =  Vector3.Lerp (transform.position, new Vector3 (transform.position.x, yPosition + pingPongPosition, transform.position.z),Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         SceneManager.LoadScene(2);
     }
