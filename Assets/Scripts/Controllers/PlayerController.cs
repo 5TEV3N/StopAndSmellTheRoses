@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float valOfVelocity;         // Checks how fast the player goes
     public float maxVelocity;           // The max speed of how fast the player goes
 
+    public AudioSource jumpSound;
+
     private Rigidbody2D rb;             // Access the rigidbody2D
     
     //Player Movement Section
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true)
         {
             rb.AddForce(transform.up * playerJumpHeight, ForceMode2D.Impulse);
-            //rb.velocity = (transform.up * playerJumpHeight);
+            jumpSound.Play();
             isGrounded = false;
         }
     }

@@ -7,7 +7,9 @@ public class InputManager : MonoBehaviour
 
     public SpriteRenderer steKun;               // Refference to SpriteRender
     public Animator steKunAnimator;             // Animator for Ste-Kun refference
+
     private float xAxis = 0;                    // 1 = right -1 = Left
+    
 
     void Awake()
     {
