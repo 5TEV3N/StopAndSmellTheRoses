@@ -22,7 +22,6 @@ public class FogController : MonoBehaviour
         timeBeforeFogMoves -= Time.deltaTime;
         if (timeBeforeFogMoves <= 0)
         {
-            print("RUN!");
             gameObject.transform.Translate(new Vector2(1,0) * fogSpeed);
             ParticleSystem.EmissionModule fogEmit = fog.emission;
             fogEmit.enabled = true;

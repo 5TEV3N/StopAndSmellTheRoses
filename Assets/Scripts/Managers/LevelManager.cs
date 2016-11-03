@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
     //Store Section here. When game is launched, place prefab section into the dessignated section
 
     MusicManager musicManager;                      // Refference to the music manager
+    RoseController roseController;                  // Refference to the rose manager
 
     [Header ("Spawns")]
 
@@ -24,6 +25,10 @@ public class LevelManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("T_MusicManager") != null)
         {
             musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
+        }
+        if (GameObject.FindGameObjectWithTag("T_Roses")!= null)
+        {
+            roseController = GameObject.FindGameObjectWithTag("T_Roses").GetComponent<RoseController>();
         }
     }
 
@@ -46,7 +51,14 @@ public class LevelManager : MonoBehaviour
     {
         if (musicManager != null)
         {
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, Time.deltaTime);
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, 0.12f);
+            if (roseController != null)
+            {   
+                if (roseController.musicStart == true)
+                {
+                    musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, -1f, Time.deltaTime);
+                }
+            }
         }
     }
 }
