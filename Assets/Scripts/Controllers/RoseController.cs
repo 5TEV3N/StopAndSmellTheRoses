@@ -42,7 +42,7 @@ public class RoseController : MonoBehaviour
     {
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
-            print ("music lerp to 1f");
+            //print ("music lerp to 1f");
             musicStart = true;
         }
     }
@@ -51,7 +51,7 @@ public class RoseController : MonoBehaviour
     {
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
-            print("music lerp to 0f");
+            //print("music lerp to 0f");
             musicStart = false;
         }
     }

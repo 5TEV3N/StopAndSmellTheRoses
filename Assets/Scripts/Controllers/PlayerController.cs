@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;             // Checks if grounded
     public float valOfVelocity;         // Checks how fast the player goes
     public float maxVelocity;           // The max speed of how fast the player goes
+    public bool consumedByFog;          // if the player hits the collider of the fog, pause time, let it consume you   
 
-    public AudioSource jumpSound;
+    public AudioSource jumpSound;       //
 
     private Rigidbody2D rb;             // Access the rigidbody2D
     
