@@ -10,6 +10,7 @@ public class NervousManager : MonoBehaviour
     public GameObject fogObject;                     // Container for the fog
     public float fogDifferenceDistance;              // Value of player - fog
     public float distanceOfWhenToPanic;              // Self explanatory
+    public float interpolationVal;
     [Header("----")]
     public float shakeDuration;                      // Duration of the camera shake
     public float shakeAmplitude;                     // Amplitude of the shake ("How hard it shakes")
@@ -33,14 +34,14 @@ public class NervousManager : MonoBehaviour
         
         if (fogDifferenceDistance <= distanceOfWhenToPanic)
         {
-            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0.92f, Time.deltaTime);
+            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0.92f, interpolationVal);
             cameraShake2D.ShakeCamera(shakeDuration, shakeAmplitude, shakeDecay);
             print("Blurry and Camera shake!!");
         }
 
         if (fogDifferenceDistance >= distanceOfWhenToPanic)
         {
-            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0, Time.deltaTime);
+            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0, interpolationVal);
             print("Clearing Vision");
         }
     }
