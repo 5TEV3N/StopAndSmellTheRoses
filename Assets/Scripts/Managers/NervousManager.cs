@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 using System.Collections;
 
 public class NervousManager : MonoBehaviour
 {
+    MotionBlur motionBlur;                           // Refference to the motionblur script
     CameraShake2D cameraShake2D;                     // Refference to the cameraShake2D script
 
     public GameObject fogObject;                     // Container for the fog
@@ -15,12 +17,11 @@ public class NervousManager : MonoBehaviour
 
     private Vector3 playerPosition;                  // Position of player
     private Vector3 fogPosition;                     // Position of fog
-    //private GameObject camMotionBlur;                // Refference to the motionblur script
     
     void Awake()
     {
-        //camMotionBlur = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MotionBlur>();
-        cameraShake2D = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake2D>();
+        motionBlur = Camera.main.GetComponent<MotionBlur>();
+        cameraShake2D = Camera.main.GetComponent<CameraShake2D>();
     }
 
     void Update()
@@ -32,10 +33,14 @@ public class NervousManager : MonoBehaviour
         
         if (fogDifferenceDistance <= distanceOfWhenToPanic)
         {
+            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0.92f, Time.deltaTime);
+            cameraShake2D.ShakeCamera(shakeDuration, shakeAmplitude, shakeDecay);
             print("Blurry and Camera shake!!");
         }
+
         if (fogDifferenceDistance >= distanceOfWhenToPanic)
         {
+            motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0, Time.deltaTime);
             print("Clearing Vision");
         }
     }

@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class CameraShake2D : MonoBehaviour {
@@ -20,53 +19,55 @@ public class CameraShake2D : MonoBehaviour {
 
 	Vector3 originalPos;
 
-	void Awake() {
-			
-		if (camTransform == null) {
+	void Awake()
+    {
+		if (camTransform == null)
+        {
 				
 			camTransform = GetComponent(typeof(Transform)) as Transform;
 			cam = camTransform.GetComponent<Camera> ();
 		}
 
-		if (instance == null) {
+		if (instance == null)
+        {
 
 			instance = this;
 
 		}
+	}
+
+	void OnEnable()
+    {
+			
+		//originalPos = camTransform.localPosition;
 
 	}
 
-	void OnEnable() {
-			
-		originalPos = camTransform.localPosition;
+	void Update()
+    {
+        originalPos = camTransform.localPosition;
 
-	}
-
-	void Update() {
-			
-		if (shakeDuration > 0) {
-
+        if (shakeDuration > 0)
+        {
 			Vector2 shake = Random.insideUnitCircle * shakeAmount;
 
 			camTransform.localPosition = originalPos + new Vector3 (shake.x, shake.y, 0.0f);
 
-
 			shakeDuration -= Time.deltaTime * decreaseFactor;
+		}
 
-		} else {
-				
+        else
+        {	
 			shakeDuration = 0f;
-
 		}
 
 	}
 
-	public void ShakeCamera (float duration, float amplitude, float decay) {
-
+	public void ShakeCamera (float duration, float amplitude, float decay)
+    {
 		shakeDuration = duration;
 		shakeAmount = amplitude;
 		decreaseFactor = decay;
-
 	}
 
 }
