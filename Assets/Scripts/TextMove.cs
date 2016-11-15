@@ -10,4 +10,3 @@ public class TextMove : MonoBehaviour
         transform.localScale = new Vector3(50f, 50f, 50f) * Time.deltaTime;
     }
 }
-//(1f * Mathf.Sin(Time.time), 1f * Mathf.Sin(Time.time), 1f * Mathf.Sin(Time.time));
