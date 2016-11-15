@@ -7,6 +7,6 @@ public class TextMove : MonoBehaviour
 
 	void Update ()
     {
-        transform.localScale = new Vector3(50f, 50f, 50f) * Time.deltaTime;
+        transform.localScale = new Vector3(xyzScale, xyzScale, xyzScale) * Time.deltaTime;
     }
 }
