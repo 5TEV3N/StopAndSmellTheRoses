@@ -26,7 +26,7 @@ public class RoseController : MonoBehaviour
         if (musicStart == true)
         {
             BGM.volume = Mathf.Lerp(BGM.volume, 1f, Time.deltaTime);
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, -0.85f, Time.deltaTime);
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
 
         }
 

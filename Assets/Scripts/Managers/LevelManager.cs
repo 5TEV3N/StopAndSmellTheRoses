@@ -34,6 +34,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        if (musicManager != null)
+        {
+            musicManager.mainBGM.volume = musicManager.mainBGM.volume; //Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, 0.12f);
+        }
+
         Transform section1SpawnArray = section1Prefab[Random.Range(0, section1Prefab.Length)];
         Transform section1Spawn = Instantiate(section1SpawnArray);
         section1Spawn.SetParent(section1Location);
@@ -45,20 +50,5 @@ public class LevelManager : MonoBehaviour
         Transform section3SpawnArray = section3Prefab[Random.Range(0, section3Prefab.Length)];
         Transform section3Spawn = Instantiate(section3SpawnArray);
         section3Spawn.SetParent(section3Location);
-    }
-
-    void Update()
-    {
-        if (musicManager != null)
-        {
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, 0.12f);
-            if (roseController != null)
-            {   
-                if (roseController.musicStart == true)
-                {
-                    musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, -1f, Time.deltaTime);
-                }
-            }
-        }
     }
 }

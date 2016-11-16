@@ -60,7 +60,7 @@ public class LevelChangeController : MonoBehaviour
 
         if (musicManager != null)
         {
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, 0.1f);
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
         }
 
     }
