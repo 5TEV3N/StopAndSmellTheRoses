@@ -50,6 +50,7 @@ public class LevelChangeController : MonoBehaviour
 
         if (sceneName == "Pause")
         {
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
             pause -= Time.deltaTime;
             if (pause <= 0)
             {
@@ -57,13 +58,8 @@ public class LevelChangeController : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
         }
-
-        if (musicManager != null)
-        {
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
-        }
-
     }
+
     public void StartGame()
     {
         ui1.SetActive(false);
