@@ -58,6 +58,10 @@ public class LevelChangeController : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
         }
+        if (sceneName != "Pause")
+        {
+            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0.1f, Time.deltaTime);
+        }
     }
 
     public void StartGame()
