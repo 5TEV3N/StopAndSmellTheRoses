@@ -34,12 +34,6 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        if (musicManager != null)
-        {
-            musicManager.mainBGM.volume = musicManager.mainBGM.volume; 
-            //Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, 0.12f);
-        }
-
         Transform section1SpawnArray = section1Prefab[Random.Range(0, section1Prefab.Length)];
         Transform section1Spawn = Instantiate(section1SpawnArray);
         section1Spawn.SetParent(section1Location);

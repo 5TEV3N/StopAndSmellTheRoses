@@ -13,7 +13,7 @@ public class TitleScreenBGM : MonoBehaviour {
 
     void Update ()
     {
-        BGM.volume = Mathf.Lerp(BGM.volume, 0.1f, Time.deltaTime);
+        BGM.volume = Mathf.Lerp(BGM.volume, 0.5f, Time.deltaTime);
 
         if (levelChangeController.lerpMusicToMute == true)
         {

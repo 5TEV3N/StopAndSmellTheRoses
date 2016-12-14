@@ -3,8 +3,8 @@ using System.Collections;
 
 public class RoseController : MonoBehaviour
 {
-    public bool musicStart;         // Turns the music on ONCE after it's true
-    private AudioSource BGM;        // Container for the AudioSource
+    public bool roseMusicStart;         // Turns the music on ONCE after it's true
+    public AudioSource RoseBGM;     // Container for the AudioSource
 
     MusicManager musicManager;      // Refference to the music manager
 
@@ -18,24 +18,7 @@ public class RoseController : MonoBehaviour
 
     void Start()
     {
-        BGM = GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-        if (musicStart == true)
-        {
-            BGM.volume = Mathf.Lerp(BGM.volume, 1f, Time.deltaTime);
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, 0f, Time.deltaTime);
-
-        }
-
-        if (musicStart == false)
-        {
-            BGM.volume = Mathf.Lerp(BGM.volume, 0f, Time.deltaTime);
-            musicManager.mainBGM.volume = Mathf.Lerp(musicManager.mainBGM.volume, musicManager.mainBGMVolume, Time.deltaTime);
-        }
-
+        RoseBGM = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,7 +26,7 @@ public class RoseController : MonoBehaviour
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
             //print ("music lerp to 1f");
-            musicStart = true;
+            roseMusicStart = true;
         }
     }
 
@@ -52,7 +35,7 @@ public class RoseController : MonoBehaviour
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
             //print("music lerp to 0f");
-            musicStart = false;
+            roseMusicStart = false;
         }
     }
 }
