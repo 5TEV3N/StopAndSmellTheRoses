@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("T_MusicManager") != null)
         {
             musicManager = GameObject.FindGameObjectWithTag("T_MusicManager").GetComponent<MusicManager>();
+            musicManager.mainBGM.pitch = musicManager.mainBGM.pitch - 0.03f;
         }
         if (GameObject.FindGameObjectWithTag("T_Roses")!= null)
         {

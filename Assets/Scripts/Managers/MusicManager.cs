@@ -44,6 +44,7 @@ public class MusicManager : MonoBehaviour
             {
                 mainBGM.volume = Mathf.Lerp(mainBGM.volume, mainBGMVolume, Time.deltaTime);
             }
+
             if (sceneName == "Loop" && roseInScene == true)
             {
                 if (roseController.roseMusicStart == true)
