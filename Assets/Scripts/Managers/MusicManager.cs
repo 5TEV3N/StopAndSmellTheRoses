@@ -30,6 +30,24 @@ public class MusicManager : MonoBehaviour
             roseInScene = false;
         }
 
+        if (GameObject.FindGameObjectWithTag("T_Fog") != null)
+        {
+            GameObject fog = GameObject.FindGameObjectWithTag("T_Fog");
+            GameObject player = GameObject.FindGameObjectWithTag("T_Player");
+            AudioSource fogNoise = GameObject.FindGameObjectWithTag("T_Fog").GetComponent<AudioSource>();
+            float distanceBetweenFogAndPlayer =  player.transform.position.x - fog.transform.position.x;
+            float fogNoiseVolumeOriginal = fogNoise.volume;
+
+            if (distanceBetweenFogAndPlayer <= 10f)
+            {
+                fogNoise.volume = Mathf.Lerp(fogNoise.volume, 1f, Time.deltaTime);    
+            }
+            else
+            {
+                fogNoise.volume = Mathf.Lerp(fogNoise.volume, fogNoiseVolumeOriginal, Time.deltaTime);
+            }
+        }
+
         if (gameObject != null)
         {
             currentScene = SceneManager.GetActiveScene();
