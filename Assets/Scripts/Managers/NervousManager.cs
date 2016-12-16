@@ -36,11 +36,16 @@ public class NervousManager : MonoBehaviour
         {
             motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0.92f, interpolationVal);
             cameraShake2D.ShakeCamera(shakeDuration, shakeAmplitude, shakeDecay);
+            if (fogDifferenceDistance <= 15f)
+            {
+                shakeAmplitude = 0.5f;
+            }
         }
 
         if (fogDifferenceDistance >= distanceOfWhenToPanic)
         {
             motionBlur.blurAmount = Mathf.Lerp(motionBlur.blurAmount, motionBlur.blurAmount = 0, interpolationVal);
+            shakeAmplitude = 0.1f;  //HARD CODED, CHANGE THIS IF THERE'S A PROBLEM DOWN THE ROAD
         }
     }
 

@@ -53,7 +53,6 @@ public class LevelChangeController : MonoBehaviour
             pause -= Time.deltaTime;
             if (pause <= 0)
             {
-                print("on the next one");
                 SceneManager.LoadScene(3);
             }
         }

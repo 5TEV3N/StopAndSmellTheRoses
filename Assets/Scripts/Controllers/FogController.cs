@@ -35,7 +35,6 @@ public class FogController : MonoBehaviour
     {
         if (other.gameObject.tag == "T_PlayerTrigger")
         {
-            print("Close game");
             Application.Quit();
         }
     }

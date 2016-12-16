@@ -35,7 +35,7 @@ public class MusicManager : MonoBehaviour
             GameObject fog = GameObject.FindGameObjectWithTag("T_Fog");
             GameObject player = GameObject.FindGameObjectWithTag("T_Player");
             AudioSource fogNoise = GameObject.FindGameObjectWithTag("T_Fog").GetComponent<AudioSource>();
-            float distanceBetweenFogAndPlayer =  player.transform.position.x - fog.transform.position.x;
+            float distanceBetweenFogAndPlayer =  player.transform.position.x - fog.transform.position.x;    //SHOULD BE VECTOR3.DISTANCE BUT IM LAZY
             float fogNoiseVolumeOriginal = fogNoise.volume;
 
             if (distanceBetweenFogAndPlayer <= 10f)

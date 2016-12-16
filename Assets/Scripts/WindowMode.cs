@@ -5,7 +5,7 @@ public class WindowMode : MonoBehaviour
 {	
 	void Update ()
     {
-        Screen.SetResolution(1440, 500, false);
+        Screen.SetResolution(1120, 400, false);
         Screen.fullScreen = false;
     }
 }
