@@ -55,7 +55,7 @@ public class MusicManager : MonoBehaviour
 
             if (sceneName == "Pause")
             {
-                mainBGM.volume = Mathf.Lerp(mainBGM.volume, 0f, Time.deltaTime);
+                mainBGM.volume = Mathf.Lerp(mainBGM.volume, -0.1f, Time.deltaTime);
             }
 
             if (sceneName == "Loop" && roseInScene == false )

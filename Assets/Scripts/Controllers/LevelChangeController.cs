@@ -44,7 +44,6 @@ public class LevelChangeController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 lerpMusicToMute = true;
-                StartGame();
             }
         }
 
@@ -56,12 +55,5 @@ public class LevelChangeController : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
         }
-    }
-
-    public void StartGame()
-    {
-        ui1.SetActive(false);
-        ui2.SetActive(false);
-        SceneManager.LoadScene(1);
     }
 }

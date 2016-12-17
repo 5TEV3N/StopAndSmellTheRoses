@@ -45,16 +45,6 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))    // Remove later
-        {
-            SceneManager.LoadScene(3);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))    // Remove later
-        {
-            SceneManager.LoadScene(1);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
         {
             playerController.PlayerJump();

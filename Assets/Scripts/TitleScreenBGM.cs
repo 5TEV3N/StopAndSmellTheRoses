@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenBGM : MonoBehaviour {
 
@@ -13,11 +14,18 @@ public class TitleScreenBGM : MonoBehaviour {
 
     void Update ()
     {
-        BGM.volume = Mathf.Lerp(BGM.volume, 0.5f, Time.deltaTime);
+        BGM.volume = Mathf.Lerp(BGM.volume, 0.5f, 0.01f);
 
         if (levelChangeController.lerpMusicToMute == true)
         {
-            BGM.volume = 0f;
+            BGM.volume = Mathf.Lerp(BGM.volume, -20f, Time.deltaTime);
+            levelChangeController.ui1.SetActive(false);
+            levelChangeController.ui2.SetActive(false);
+
+            if (BGM.volume <= 0.2f)
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }
