@@ -18,7 +18,7 @@ public class TitleScreenBGM : MonoBehaviour {
 
         if (levelChangeController.lerpMusicToMute == true)
         {
-            BGM.volume = Mathf.Lerp(BGM.volume, -20f, Time.deltaTime);
+            BGM.volume = Mathf.Lerp(BGM.volume, 0f, Time.deltaTime);
             levelChangeController.ui1.SetActive(false);
             levelChangeController.ui2.SetActive(false);
 
